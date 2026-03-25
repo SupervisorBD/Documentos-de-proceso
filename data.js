@@ -212,7 +212,7 @@ const PORTAL_DEFAULT_DATA = {
           "id": "paq-5",
           "name": "Etiquetas de Desperdicios de Plástico",
           "type": "link",
-          "url": "https://grupodieckhn-my.sharepoint.com/:x:/r/personal/supervisorbd_grupodieck_hn/_layouts/15/Doc.aspx?sourcedoc=%7BA406ADA3-16C7-4C03-AAE5-E403A30687BB%7D&file=etiqueta%20angel.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1",
+          "url": "https://grupodieckhn-my.sharepoint.com/:x:/g/personal/supervisorbd_grupodieck_hn/IQCjrQakxxYDTKrl5AOjBoe7AaKEhgGErqYqus8Q6f7yODg?e=FV9V15",
           "note": "Etiqueta Excel"
         }
       ]
@@ -401,7 +401,7 @@ const PORTAL_DEFAULT_DATA = {
           "id": "aguap-1",
           "name": "Validación de Datos",
           "type": "excel",
-          "url": "https://grupodieckhn-my.sharepoint.com/:x:/r/personal/supervisorbd_grupodieck_hn/_layouts/15/Doc.aspx?sourcedoc=%7B6C2F8F60-6D23-4AA4-9DFC-0734AABC78E2%7D&file=MONITOREO%20DE%20AGUA%20DE%20PROCESO.xlsx&action=edit&mobileredirect=true&wdMsFormsCorrelationId=74488ff7-7ca4-4349-a749-d252df7cb4bb&wdtf=%20Microsoft.Office.Excel.FMsFormsMetadataInWorkbookMetadata%3Atrue",
+          "url": "https://grupodieckhn-my.sharepoint.com/:x:/r/personal/supervisorbd_grupodieck_hn/_layouts/15/Doc.aspx?sourcedoc=%7B6C2F8F60-6D23-4AA4-9DFC-0734AABC78E2%7D&file=MONITOREO%20DE%20AGUA%20DE%20PROCESO.xlsx&action=edit&mobileredirect=true&wdMsFormsCorrelationId=45bc24cf-9e8f-4af1-b617-820d160444d1&wdtf=%20Microsoft.Office.Excel.FMsFormsMetadataInWorkbookMetadata%3Atrue",
           "note": "Datos de proceso"
         },
         {
@@ -422,7 +422,7 @@ const PORTAL_DEFAULT_DATA = {
           "id": "prod-1",
           "name": "Validación de Datos",
           "type": "excel",
-          "url": "https://grupodieckhn-my.sharepoint.com/:x:/r/personal/supervisorbd_grupodieck_hn/_layouts/15/Doc.aspx?sourcedoc=%7BF703A76F-1E32-4109-BAD4-D524D724A61E%7D&file=Registro%20Producto%20en%20%20%20Proceso%204.xlsx&action=edit&mobileredirect=true&wdMsFormsCorrelationId=af28cbca-4001-4c68-9c22-adf4d5f6454a&wdtf=%20Microsoft.Office.Excel.FMsFormsMetadataInWorkbookMetadata%3Atrue",
+          "url": "https://grupodieckhn-my.sharepoint.com/:x:/r/personal/supervisorbd_grupodieck_hn/_layouts/15/Doc.aspx?sourcedoc=%7BF703A76F-1E32-4109-BAD4-D524D724A61E%7D&file=Registro%20Producto%20en%20%20%20Proceso%204.xlsx&action=edit&mobileredirect=true&wdMsFormsCorrelationId=9b57c5a8-280d-4b15-96a0-6fb829962d56&wdtf=%20Microsoft.Office.Excel.FMsFormsMetadataInWorkbookMetadata%3Atrue",
           "note": "Datos de proceso"
         },
         {
@@ -464,14 +464,14 @@ const PORTAL_DEFAULT_DATA = {
           "id": "quin-1",
           "name": "Vidrio y Plástico Quebradizo",
           "type": "excel",
-          "url": "https://grupodieckhn-my.sharepoint.com/:x:/g/personal/supervisorbd_grupodieck_hn/IQC4X7pM_rhBR5DTBOkDvl0EAcAmP_5RUgklXazk2X56VrM?e=f2txIw",
+          "url": "https://grupodieckhn-my.sharepoint.com/:x:/g/personal/supervisorbd_grupodieck_hn/IQC4X7pM_rhBR5DTBOkDvl0EAcAmP_5RUgklXazk2X56VrM?e=21LWtF",
           "note": "Indicador quincenal"
         },
         {
           "id": "quin-2",
           "name": "KPI de Producción",
           "type": "excel",
-          "url": "https://grupodieckhn-my.sharepoint.com/:x:/r/personal/ariel_clavasquin_grupodieck_hn/_layouts/15/Doc.aspx?sourcedoc=%7BF783807F-B1F3-491A-9E5F-330B5F170176%7D&file=KPI%20PRODUCCION.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1",
+          "url": "https://grupodieckhn-my.sharepoint.com/:x:/r/personal/ariel_clavasquin_grupodieck_hn/_layouts/15/Doc.aspx?sourcedoc=%7BF783807F-B1F3-491A-9E5F-330B5F170176%7D&file=KPI%20PRODUCCION.xlsx&action=default&mobileredirect=true",
           "note": "KPI general"
         }
       ]
