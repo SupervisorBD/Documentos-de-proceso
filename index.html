@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Corporativo | Grupo Dieck</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="loginView" class="login-view">
+    <div class="login-shell">
+      <section class="login-copy">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div>
+            <div class="eyebrow">Acceso ejecutivo</div>
+            <h1>Portal Corporativo</h1>
+            <p>Una base portátil, elegante y lista para publicar en GitHub Pages o en cualquier hosting estático.</p>
+          </div>
+        </div>
+        <div class="login-points">
+          <span class="pill">PDF portable</span>
+          <span class="pill">Arrastrar y soltar</span>
+          <span class="pill">Sin datos perdidos</span>
+        </div>
+      </section>
+
+      <section class="login-card">
+        <div class="login-form-head">
+          <div class="eyebrow">Entrada segura</div>
+          <h1>Entra al portal</h1>
+          <p>Escribe tu nombre autorizado para abrir el panel. No se muestran listas de usuarios ni textos técnicos en esta pantalla.</p>
+        </div>
+
+        <div class="field" style="margin-top:18px">
+          <label for="loginName">Nombre autorizado</label>
+          <input class="input" id="loginName" autocomplete="off" placeholder="Escribe tu nombre" />
+        </div>
+
+        <div class="grid-2" style="margin-top:14px">
+          <button class="btn btn-primary" id="loginBtn">Entrar al portal</button>
+          <button class="btn btn-soft" id="loadDemoBtn" type="button">Abrir plantilla base</button>
+        </div>
+
+        <div class="login-note">
+          Los cambios se exportan en un archivo JSON portable. Los documentos y enlaces quedan dentro del proyecto.
+        </div>
+
+        <div class="helper">
+          Después de entrar podrás mover elementos entre áreas, editar enlaces y adjuntar PDFs para conservarlos dentro del proyecto exportado.
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="side-brand">
+        <div class="side-mark"></div>
+        <div>
+          <h2>Portal Corporativo</h2>
+          <p>Edición portátil</p>
+        </div>
+      </div>
+
+      <div class="user-card">
+        <div class="row-between">
+          <div>
+            <div class="side-meta" id="sessionName">—</div>
+            <div class="side-meta" id="sessionRole">—</div>
+          </div>
+          <span class="badge session" id="sessionBadge">Sesión</span>
+        </div>
+        <div class="side-meta" style="margin-top:10px" id="sessionHint">Los cambios se exportan como JSON.</div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-meta" style="font-weight:900;margin-bottom:8px">Proyecto</div>
+        <div class="side-meta" id="projectSummary">—</div>
+        <div class="actions" style="margin-top:12px">
+          <button class="btn btn-soft btn-slim" id="importReplaceBtn">Importar reemplazando</button>
+          <button class="btn btn-soft btn-slim" id="importMergeBtn">Añadir al proyecto</button>
+          <button class="btn btn-success btn-slim" id="exportBtn">Guardar proyecto</button>
+        </div>
+        <input id="fileInput" type="file" accept=".json,application/json" class="hidden" />
+      </div>
+
+      <nav class="nav" id="navButtons"></nav>
+
+      <div class="logout-area">
+        <button class="btn btn-ghost" id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="page">
+        <section class="hero">
+          <div>
+            <h3 id="heroTitle">Portal operativo</h3>
+            <p id="heroText">Explora documentos, favorítalos, abre enlaces, visualiza PDFs para imprimir y mueve elementos entre áreas sin perder el contenido original.</p>
+          </div>
+          <div class="hero-right">
+            <div class="hero-card">
+              <div class="label">Estado del proyecto</div>
+              <div class="value" id="projectStateLabel">Listo</div>
+              <div class="sub">Los cambios se guardan exportando un archivo.</div>
+            </div>
+            <div class="hero-card">
+              <div class="label">Último archivo</div>
+              <div class="value" id="lastFileLabel">—</div>
+              <div class="sub">Importa el archivo para seguir editando.</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="top-tools">
+          <div class="chip-row" id="sectionChips"></div>
+          <div class="actions">
+            <button class="btn btn-ghost btn-slim" id="exportTemplateBtn">Exportar plantilla</button>
+            <button class="btn btn-soft btn-slim" id="clearFiltersBtn">Limpiar filtros</button>
+          </div>
+        </div>
+
+        <div class="searchbar">
+          <input class="input" id="searchInput" placeholder="Buscar por nombre, enlace, nota o sección" />
+          <select class="select" id="sectionFilter"><option value="">Todas las secciones</option></select>
+          <select class="select" id="typeFilter">
+            <option value="">Todos los tipos</option>
+            <option value="pdf">PDF</option>
+            <option value="excel">Excel</option>
+            <option value="form">Formulario</option>
+            <option value="link">Enlace</option>
+          </select>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="label">Secciones</div>
+            <div class="value" id="kpiSections">—</div>
+            <div class="sub">Agrupaciones disponibles.</div>
+          </div>
+          <div class="stat green">
+            <div class="label">Elementos</div>
+            <div class="value" id="kpiItems">—</div>
+            <div class="sub">Documentos y enlaces.</div>
+          </div>
+          <div class="stat yellow">
+            <div class="label">Visibles</div>
+            <div class="value" id="kpiVisible">—</div>
+            <div class="sub">Coincidencias con filtros.</div>
+          </div>
+          <div class="stat red">
+            <div class="label">Favoritos</div>
+            <div class="value" id="kpiFavs">—</div>
+            <div class="sub">Guardados en el proyecto.</div>
+          </div>
+        </div>
+
+        <section id="sectionDashboard" class="section active">
+          <div id="dashboardBox"></div>
+        </section>
+
+        <section id="sectionLibrary" class="section">
+          <div id="libraryBox"></div>
+        </section>
+
+        <section id="sectionFavorites" class="section">
+          <div id="favoritesBox"></div>
+        </section>
+
+        <section id="sectionEditor" class="section">
+          <div class="toolbar top-tools">
+            <div class="actions">
+              <button class="btn btn-primary" id="addSectionBtn">Nueva sección</button>
+              <button class="btn btn-soft" id="addItemBtn">Nuevo elemento</button>
+            </div>
+            <div class="actions">
+              <button class="btn btn-soft" id="resetProjectBtn">Restaurar base</button>
+            </div>
+          </div>
+          <div class="editor-grid" id="editorBox"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="itemModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <h4 id="itemModalTitle">Elemento</h4>
+          <p id="itemModalSub">Editar o mover un elemento a otra sección.</p>
+        </div>
+        <button class="btn btn-ghost btn-slim" data-close-modal="itemModal">Cerrar</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid-2">
+          <div class="field">
+            <label for="itemSection">Sección</label>
+            <select class="select" id="itemSection"></select>
+          </div>
+          <div class="field">
+            <label for="itemType">Tipo</label>
+            <select class="select" id="itemType">
+              <option value="pdf">PDF</option>
+              <option value="excel">Excel</option>
+              <option value="form">Formulario</option>
+              <option value="link">Enlace</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:12px">
+          <div class="field">
+            <label for="itemName">Título</label>
+            <input class="input" id="itemName" />
+          </div>
+          <div class="field">
+            <label for="itemNote">Nota</label>
+            <input class="input" id="itemNote" />
+          </div>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <label for="itemUrl">URL</label>
+          <input class="input" id="itemUrl" />
+        </div>
+
+        <div class="asset-panel" style="margin-top:14px">
+          <div class="asset-panel-head">
+            <div>
+              <label style="margin:0">PDF adjunto</label>
+              <div class="asset-help">Sube el archivo para que quede guardado dentro del proyecto portable exportado.</div>
+            </div>
+            <span class="badge warn" id="assetStateBadge">Sin archivo</span>
+          </div>
+          <div class="asset-drop" id="assetDropZone">
+            <input id="itemAssetInput" type="file" accept="application/pdf" class="hidden" />
+            <div class="asset-drop-copy">
+              <strong>Arrastra un PDF aquí</strong> o usa el botón para seleccionarlo.
+              <div class="asset-help" id="assetFileName">Ningún archivo seleccionado.</div>
+            </div>
+            <div class="actions">
+              <button class="btn btn-soft btn-slim" id="pickPdfBtn" type="button">Subir PDF</button>
+              <button class="btn btn-ghost btn-slim" id="clearPdfBtn" type="button">Quitar PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn btn-soft" id="saveItemBtn">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sectionModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <h4 id="sectionModalTitle">Sección</h4>
+          <p id="sectionModalSub">Crea o actualiza una sección sin borrar información.</p>
+        </div>
+        <button class="btn btn-ghost btn-slim" data-close-modal="sectionModal">Cerrar</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid-2">
+          <div class="field">
+            <label for="sectionName">Nombre</label>
+            <input class="input" id="sectionName" />
+          </div>
+          <div class="field">
+            <label for="sectionDesc">Descripción</label>
+            <input class="input" id="sectionDesc" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn btn-soft" id="saveSectionBtn">Guardar sección</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="viewerModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal viewer-modal">
+      <div class="modal-head viewer-head">
+        <div>
+          <h4 id="viewerTitle">Vista previa</h4>
+          <p id="viewerSub">Abre el PDF, imprímelo o descárgalo.</p>
+        </div>
+        <div class="actions">
+          <button class="btn btn-soft btn-slim" id="viewerPrintBtn" type="button">Imprimir</button>
+          <button class="btn btn-soft btn-slim" id="viewerOpenBtn" type="button">Abrir</button>
+          <button class="btn btn-ghost btn-slim" data-close-modal="viewerModal">Cerrar</button>
+        </div>
+      </div>
+      <div class="viewer-body">
+        <iframe id="viewerFrame" class="viewer-frame" title="Vista previa del PDF"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
